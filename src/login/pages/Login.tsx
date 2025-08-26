@@ -1,3 +1,4 @@
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { kcSanitize } from "keycloakify/lib/kcSanitize";
 import { getKcClsx, type KcClsx } from "keycloakify/login/lib/kcClsx";
 import type { PageProps } from "keycloakify/login/pages/PageProps";
@@ -6,7 +7,8 @@ import { clsx } from "keycloakify/tools/clsx";
 import { useIsPasswordRevealed } from "keycloakify/tools/useIsPasswordRevealed";
 import { useState } from "react";
 
-import { ArrowRightIcon } from "lucide-react";
+import { ArrowRightIcon, LockIcon, MailIcon } from "lucide-react";
+import { fas } from "../../components/icons";
 import type { KcContext } from "../KcContext";
 import type { I18n } from "../i18n";
 
@@ -66,7 +68,9 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                             {p.iconClasses && (
                                                 <i
                                                     className={clsx(kcClsx("kcCommonLogoIdP"), p.iconClasses)}
-                                                    aria-hidden="true"></i>
+                                                    aria-hidden="true">
+                                                    <FontAwesomeIcon icon={fas(p.iconClasses.split(" ")[1])} />
+                                                </i>
                                             )}
                                             <span
                                                 className={clsx(kcClsx("kcFormSocialAccountNameClass"), p.iconClasses && "kc-social-icon-text")}
@@ -97,17 +101,21 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                         className={kcClsx("kcLabelClass")}>
                                         {!realm.loginWithEmailAllowed ? msg("username") : !realm.registrationEmailAsUsername ? msg("usernameOrEmail") : msg("email")}
                                     </label>
-                                    <input
-                                        tabIndex={2}
-                                        id="username"
-                                        className={kcClsx("kcInputClass")}
-                                        name="username"
-                                        defaultValue={login.username ?? ""}
-                                        type="text"
-                                        autoFocus
-                                        autoComplete="username"
-                                        aria-invalid={messagesPerField.existsError("username", "password")}
-                                    />
+                                    <div className="kcInputGroupClass">
+                                        <input
+                                            tabIndex={2}
+                                            id="username"
+                                            className={kcClsx("kcInputClass")}
+                                            name="username"
+                                            defaultValue={login.username ?? ""}
+                                            type="text"
+                                            autoFocus
+                                            autoComplete="username"
+                                            aria-invalid={messagesPerField.existsError("username", "password")}
+                                            placeholder={`Enter your ${(!realm.loginWithEmailAllowed ? msgStr("username") : !realm.registrationEmailAsUsername ? msgStr("usernameOrEmail") : msgStr("email")).toLowerCase()}`}
+                                        />
+                                        <MailIcon className="kcInputIconClass" />
+                                    </div>
                                     {messagesPerField.existsError("username", "password") && (
                                         <span
                                             id="input-error"
@@ -131,15 +139,19 @@ export default function Login(props: PageProps<Extract<KcContext, { pageId: "log
                                     kcClsx={kcClsx}
                                     i18n={i18n}
                                     passwordInputId="password">
-                                    <input
-                                        tabIndex={3}
-                                        id="password"
-                                        className={kcClsx("kcInputClass")}
-                                        name="password"
-                                        type="password"
-                                        autoComplete="current-password"
-                                        aria-invalid={messagesPerField.existsError("username", "password")}
-                                    />
+                                    <div className="kcInputGroupClass">
+                                        <input
+                                            tabIndex={3}
+                                            id="password"
+                                            className={kcClsx("kcInputClass")}
+                                            name="password"
+                                            type="password"
+                                            autoComplete="current-password"
+                                            aria-invalid={messagesPerField.existsError("username", "password")}
+                                            placeholder="Enter your password"
+                                        />
+                                        <LockIcon className="kcInputIconClass" />
+                                    </div>
                                 </PasswordWrapper>
                                 {usernameHidden && messagesPerField.existsError("username", "password") && (
                                     <span

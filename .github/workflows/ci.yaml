@@ -44,6 +44,8 @@ jobs:
     if: needs.check_if_version_upgraded.outputs.is_upgraded_version == 'true'
     steps:
       - uses: actions/checkout@v4
+      - name: Enable Corepack
+        run: corepack enable
       - uses: actions/setup-node@v4
       - uses: bahmutov/npm-install@v1
       - run: npm run build-keycloak-theme

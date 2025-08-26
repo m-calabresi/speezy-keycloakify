@@ -1,24 +1,30 @@
 {
-    "printWidth": 90,
-    "tabWidth": 4,
-    "useTabs": false,
-    "semi": true,
-    "singleQuote": false,
-    "trailingComma": "none",
+    "arrowParens": "always",
+    "bracketSameLine": true,
     "bracketSpacing": true,
-    "arrowParens": "avoid",
+    "checkIgnorePragma": true,
+    "cursorOffset": -1,
+    "embeddedLanguageFormatting": "auto",
+    "endOfLine": "lf",
+    "htmlWhitespaceSensitivity": "css",
+    "insertPragma": false,
+    "jsxSingleQuote": false,
+    "objectWrap": "preserve",
+    "printWidth": 200,
+    "proseWrap": "preserve",
+    "quoteProps": "as-needed",
+    "semi": true,
+    "requirePragma": false,
+    "singleQuote": false,
+    "tabWidth": 4,
+    "trailingComma": "all",
+    "singleAttributePerLine": true,
+    "useTabs": false,
     "overrides": [
         {
-            "files": [
-                "**/login/pages/*.tsx",
-                "**/account/pages/*.tsx",
-                "**/login/Template.tsx",
-                "**/account/Template.tsx",
-                "**/login/UserProfileFormFields.tsx",
-                "KcApp.tsx"
-            ],
+            "files": ["*.yaml", "*.yml", "package*.json"],
             "options": {
-                "printWidth": 150
+                "tabWidth": 2
             }
         }
     ]

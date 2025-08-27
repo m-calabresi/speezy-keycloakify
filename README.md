@@ -1,4 +1,5 @@
 # Speezy Keycloakify theme
+
 Keycloakify theme for Speezy.
 
 ## TODO

@@ -1,10 +1,10 @@
 {
-  "name": "keycloakify-starter",
-  "version": "0.0.0",
-  "description": "Starter for Keycloakify 11",
+  "name": "speezy-keycloakify",
+  "version": "1.0.0",
+  "description": "Speezy Keycloakify Theme",
   "repository": {
     "type": "git",
-    "url": "git://github.com/codegouvfr/keycloakify-starter.git"
+    "url": "git@github.com:m-calabresi/speezy-keycloakify.git"
   },
   "type": "module",
   "scripts": {

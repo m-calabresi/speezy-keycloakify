@@ -27,22 +27,13 @@ fi
 # [0-9]+                      => one or more digits (minor version)
 # \.                          => dot
 # [0-9]+                      => one or more digits (patch version)
-# (-[a-zA-Z]+(\.[0-9]+)?)?    => optional suffix:
-#                                - starts with "-"
-#                                - followed by letters only (e.g., alpha, beta)
-#                                - optional: a dot followed by digits (e.g., .1)
-# $                           => end of string
-if [[ ! "$VERSION" =~ [0-9]+\.[0-9]+\.[0-9]+(-[a-zA-Z]+(\.[0-9]+)?)?$ ]]; then
+if [[ ! "$VERSION" =~ ^[0-9]+\.[0-9]+\.[0-9]$ ]]; then
   echo "❌ Error: Invalid version format."
   echo "Expected format:"
-  echo "  - v<MAJOR>.<MINOR>.<PATCH>"
-  echo "  - Optional suffix: -alpha, -beta.1, etc."
+  echo "  - <MAJOR>.<MINOR>.<PATCH>"
   echo "Examples:"
   echo "  ✔ 1.2.3"
-  echo "  ✔ 1.2.3-alpha"
-  echo "  ✔ 1.2.3-alpha.1"
-  echo "  ✖ 1.2.3-"
-  echo "  ✖ 1.2.3-alpha."
+  echo "  ✖ v1.2.3"
   exit 1
 fi
 

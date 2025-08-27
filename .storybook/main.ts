@@ -5,8 +5,11 @@ const config: StorybookConfig = {
     addons: [],
     framework: {
         name: "@storybook/react-vite",
-        options: {}
+        options: {},
     },
-    staticDirs: ["../public"]
+    staticDirs: ["../public"],
+    core: {
+        disableTelemetry: true,
+    },
 };
 export default config;

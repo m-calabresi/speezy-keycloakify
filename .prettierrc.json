@@ -20,6 +20,7 @@
     "trailingComma": "all",
     "singleAttributePerLine": true,
     "useTabs": false,
+    "plugins": ["prettier-plugin-tailwindcss"],
     "overrides": [
         {
             "files": ["*.yaml", "*.yml", "package*.json"],
@@ -27,6 +28,5 @@
                 "tabWidth": 2
             }
         }
-    ],
-    "plugins": ["prettier-plugin-tailwindcss"]
+    ]
 }

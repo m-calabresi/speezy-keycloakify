@@ -8,10 +8,10 @@ import { defineConfig } from "vite";
 export default defineConfig({
     plugins: [
         react(),
-        tailwindcss(),
         keycloakify({
             accountThemeImplementation: "none",
         }),
+        tailwindcss(),
     ],
     resolve: {
         alias: {
